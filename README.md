@@ -36,28 +36,36 @@ Feedbacksystem: <br>
 - Adaptiv: Ziel verschwindet nach Treffer und taucht an neuer Stelle auf
 
 **3.) Theoretische Schwerpunkte und eingesetzte VR-Konzepte:** <br>
+
 **1. Tiefenwahrnehmung:** 
 - Durch Variation von Korbposition, -höhe und -entfernung wird die räumliche Einschätzung des Ziels herausgefordert.
 - Ziel: Verstehen und Erleben, wie visuelle Hinweise (Größe, Schatten, Parallaxe) die Entfernungseinschätzung beeinflussen. <br>
+
 **2. Motorisches Lernen & Koordination:**
 - Durch wiederholte Interaktion mit dem Ziel erfolgt eine Anpassung der Wurfbewegung und Koordination. <br>
-- Ziel: Demonstration adaptiver Lernprozesse in der VR.
+- Ziel: Demonstration adaptiver Lernprozesse in der VR. <br>
+
 **3. Visuelle Stimuli & Interaktion:** <br>
 - Farbliche Zielhervorhebung, Bewegungsanimationen. <br>
 - Ziel: Steigerung der Aufmerksamkeit, Fokussierung und Feedback-Verarbeitung. <br>
+
 **4. Presence & Immersion:** <br>
 - Durch realistische Räume, Sounddesign, Lichtstimmungen und einfache physikalische Rückmeldungen. <br>
 - Ziel: Nutzer:innen sollen ein Gefühl entwickeln, tatsächlich im Raum zu sein. <br>
+
 **5. Pseudo-Haptik:** <br>
 - Visuelle und auditive Effekte simulieren Rückmeldung bei Treffer oder Fehlwurf. <br>
 - Ziel: Kompensation fehlender echter haptischer Reize. <br>
+
 **6. Adaptiver Raum & kognitive Illusion:** <br>
 - Das sich verändernde Ziel erzeugt die Illusion eines sich wandelnden Raums. <br>
 - Ziel: Analyse des Einflusses bewegter Zielobjekte auf Raumgefühl und Orientierung. <br>
+
 **7. Gamification & Motivation:** <br>
 - Punktesystem, Zielanimationen sorgen für Motivation und Fortschrittserleben <br>
 
-**4.) Technisches Konzept** <br>
+
+**4.) Technisches Konzept** 
 **Tools und Plattformen:** <br>
 - Unity <br>
 - C# zum Programmieren <br>
