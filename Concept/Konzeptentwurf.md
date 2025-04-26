@@ -2,7 +2,7 @@
 
 **Titel des Projekts: Immersives VR-Basketballtraining**
 
-**Teammitglieder:** <br> Maylin, <br> Mirjam Werner 317243, <br> Samantha Rauhaus 70493970
+**Teammitglieder:** <br> Maylin Mittmann 70494395 <br> Mirjam Werner 317243, <br> Samantha Rauhaus 70493970
 
 **1.) Einleitung** <br>
 In diesem Projekt entwickeln wir eine interaktive VR-Anwendung die den Nutzern den gezielten Einsatz von Virtual-Reality-Technologien und deren theoretischer Schwerpunkte näher bringen soll. Ziel ist es, zentrale Aspekte der Wahrnehmung, Interaktion und Immersion durch eine spielerische, aber strukturierte Anwendung erlebbar zu machen. Als Anwendungsszenario dient eine virtuelle Basketballwurf-Simulation, bei der Nutzer:innen aktiv mit einem dynamisch reagierenden System interagieren und dabei Veränderungen in Raum, Höhe und Distanz erleben.
