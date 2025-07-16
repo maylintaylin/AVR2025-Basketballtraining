@@ -5,7 +5,7 @@ public class BasketTrigger : MonoBehaviour
     public Transform[] targetPositions;   // Array der möglichen Zielpositionen
     public Transform ringTrigger;         // Der Ring mit dem Trigger
     public Transform basketRoot;          // Das Hauptobjekt des Korbs (das gesamte Basket-Setup, was verschoben werden soll)
-
+    public Transform startPosition;  
     public ScoreManager scoreManager;     // NEU: Referenz zum ScoreManager
 
     // Start-Methode: Wird bei Spielstart aufgerufen
@@ -56,9 +56,17 @@ public class BasketTrigger : MonoBehaviour
         Transform newPosition = targetPositions[index];
 
         // Korb an die neue Position und Rotation bewegen
-        basketRoot.position = newPosition.position;
-        basketRoot.rotation = newPosition.rotation;
+        //basketRoot.position = newPosition.position;
+        //basketRoot.rotation = newPosition.rotation;
 
+Vector3 fixedPosition = new Vector3(
+            newPosition.position.x,
+            basketRoot.position.y,    // Behalte ursprüngliche Y-Position
+            newPosition.position.z
+        );
+
+        basketRoot.position = fixedPosition;
+        basketRoot.rotation = newPosition.rotation;
         Debug.Log($"Korb ist jetzt an Position {index} mit Koordinaten {newPosition.position}");
     }
 }
