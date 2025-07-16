@@ -5,24 +5,22 @@ public class BasketTrigger : MonoBehaviour
     public Transform[] targetPositions;   // Array der möglichen Zielpositionen
     public Transform ringTrigger;         // Der Ring mit dem Trigger
     public Transform basketRoot;          // Das Hauptobjekt des Korbs (das gesamte Basket-Setup, was verschoben werden soll)
-    public Transform startPosition;  
-    public ScoreManager scoreManager;     // NEU: Referenz zum ScoreManager
+    public Transform startPosition;       // Startposition (optional)
+    public ScoreManager scoreManager;     // Referenz zum ScoreManager
+    public AudioSource netSound;          // AudioSource für den Sound beim Treffer
 
-    // Start-Methode: Wird bei Spielstart aufgerufen
     private void Start()
     {
         // Sicherstellen, dass der Trigger korrekt eingestellt ist
         if (ringTrigger != null)
         {
             Collider col = ringTrigger.GetComponent<Collider>();
-            if (col != null) col.isTrigger = true; // Trigger aktivieren
+            if (col != null) col.isTrigger = true;
         }
 
-        // Debug-Log für Initialisierung
         Debug.Log("BasketTrigger wurde korrekt initialisiert.");
     }
 
-    // Trigger-Kollision prüfen
     private void OnTriggerEnter(Collider other)
     {
         // Prüfen, ob das kollidierende Objekt ein Basketball ist
@@ -30,10 +28,16 @@ public class BasketTrigger : MonoBehaviour
         {
             Debug.Log("Ball ist durch den Korb gegangen! Korb bewegt sich...");
 
-            // NEU: Punktestand erhöhen
+            // Punktestand erhöhen
             if (scoreManager != null)
             {
                 scoreManager.AddPoint();
+            }
+
+            // Sound abspielen
+            if (netSound != null)
+            {
+                netSound.Play();
             }
 
             // Korb verschieben
@@ -41,32 +45,27 @@ public class BasketTrigger : MonoBehaviour
         }
     }
 
-    // Korb an eine zufällige vorgegebene Position bewegen
     private void MoveToRandomPredefinedPosition()
     {
-        // Wenn keine Zielpositionen definiert sind, nichts tun
         if (targetPositions.Length == 0)
         {
             Debug.LogWarning("Keine Zielpositionen definiert! Korb bleibt stehen.");
             return;
         }
 
-        // Zufällige Position im Array auswählen
         int index = Random.Range(0, targetPositions.Length);
         Transform newPosition = targetPositions[index];
 
-        // Korb an die neue Position und Rotation bewegen
-        //basketRoot.position = newPosition.position;
-        //basketRoot.rotation = newPosition.rotation;
-
-Vector3 fixedPosition = new Vector3(
+        Vector3 fixedPosition = new Vector3(
             newPosition.position.x,
-            basketRoot.position.y,    // Behalte ursprüngliche Y-Position
+            basketRoot.position.y,
             newPosition.position.z
         );
 
         basketRoot.position = fixedPosition;
         basketRoot.rotation = newPosition.rotation;
+
         Debug.Log($"Korb ist jetzt an Position {index} mit Koordinaten {newPosition.position}");
     }
 }
+
