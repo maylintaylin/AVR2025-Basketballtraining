@@ -5,8 +5,8 @@ public class BasketTrigger : MonoBehaviour
     public Transform[] targetPositions;   // Array der möglichen Zielpositionen
     public Transform ringTrigger;         // Der Ring mit dem Trigger
     public Transform basketRoot;          // Das Hauptobjekt des Korbs (das gesamte Basket-Setup, was verschoben werden soll)
+    public Transform startPosition;       // Startposition für den Korb (neu!)
 
-    // Start-Methode: Wird bei Spielstart aufgerufen
     private void Start()
     {
         // Sicherstellen, dass der Trigger korrekt eingestellt ist
@@ -15,7 +15,15 @@ public class BasketTrigger : MonoBehaviour
             Collider col = ringTrigger.GetComponent<Collider>();
             if (col != null) col.isTrigger = true; // Trigger aktivieren
         }
-        
+
+        // // Korb an Startposition setzen (neu!)
+        // if (startPosition != null)
+        // {
+        //     basketRoot.position = startPosition.position;
+        //     basketRoot.rotation = startPosition.rotation;
+        //     Debug.Log("Korb wurde zur Startposition gesetzt.");
+        // }
+
         // Debug-Log für Initialisierung
         Debug.Log("BasketTrigger wurde korrekt initialisiert.");
     }
@@ -27,7 +35,7 @@ public class BasketTrigger : MonoBehaviour
         if (other.CompareTag("Basketball"))
         {
             Debug.Log("Ball ist durch den Korb gegangen! Korb bewegt sich...");
-            
+
             // Korb verschieben
             MoveToRandomPredefinedPosition();
         }
@@ -48,7 +56,13 @@ public class BasketTrigger : MonoBehaviour
         Transform newPosition = targetPositions[index];
 
         // Korb an die neue Position und Rotation bewegen
-        basketRoot.position = newPosition.position;
+        Vector3 fixedPosition = new Vector3(
+            newPosition.position.x,
+            basketRoot.position.y,    // Behalte ursprüngliche Y-Position
+            newPosition.position.z
+        );
+
+        basketRoot.position = fixedPosition;
         basketRoot.rotation = newPosition.rotation;
 
         Debug.Log($"Korb ist jetzt an Position {index} mit Koordinaten {newPosition.position}");
